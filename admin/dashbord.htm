@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../src/output.css">
+  <link rel="stylesheet" href="../css/stylee.css">
   <title>Admin panel</title>
 </head>
 <body>
@@ -12,7 +13,7 @@
 <header>
  
   <header class='flex bg-[#121533] py-3 px-6 lg:px-10 font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
-    <div class='flex flex-wrap items-center justify-between gap-4 w-full'>
+    <div class='flex flex-wrap items-center justify-center gap-4 w-full'>
       <a href="#" class="text-white text-lg">Nurlan Softs</a>
       <div id="collapseMenu"
         class="max-lg:hidden lg:!flex lg:items-center max-lg:before:fixed max-lg:before:bg-black max-lg:before:opacity-40 max-lg:before:inset-0 max-lg:before:z-50">
@@ -83,18 +84,7 @@
           </li>
         </ul>
       </div>
-  
-      <div class='flex items-center max-lg:ml-auto'>
-        <input type="text" placeholder="Search something..."
-          class="bg-transparent border-2 border-gray-300 text-lg w-full px-5 text-gray-300 rounded-full h-9 outline-none"></input>
-        <button id="toggleOpen" class='lg:hidden ml-7'>
-          <svg class="w-7 h-7 fill-gray-300" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clip-rule="evenodd"></path>
-          </svg>
-        </button>
-      </div>
+
     </div>
   </header>
 
@@ -105,7 +95,7 @@
     <div class="bg-gradient-to-r from-pink-500 to-purple-500 p-8 font-sans">
       <div class="container mx-auto">
         <h2 class="text-4xl font-bold text-white mb-8">Site sağlıq statiskası</h2>
-        <div class="grid grid-cols-1 lg:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1  lg:grid-cols-3 gap-8">
           <div class="bg-white rounded-lg shadow-md p-6">
             <div class="flex items-center justify-center bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full p-3 w-16 h-16">
               <svg class="h-8 w-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -149,79 +139,78 @@
      <div class="div-title flex items-center justify-center">
       <h1 class="text-3xl my-5 font-bold">Xəbər yerləşdir</h1>
      </div>
-    <form action="" class="border lg:w-[90%] p-4 mx-auto rounded-md">
+
+     <div id="xeberinfo" class="bildirim flex items-center justify-center p-4">
+   
+     </div>
+
+    <form onsubmit="handleSubmit(event)" class="border lg:w-[50%] p-4 mx-auto rounded-md">
   <label class="flex items-start flex-col justify-start lg:w-[80%]">
     <h1 class="text-2xl my-6">Xəbərin başlığı </h1>
-    <input type='text' placeholder='Xəbərin başlığı'
+    <input id="title"  type='text' placeholder='Xəbərin başlığı'
           class="pr-4 px-5 py-2.5 text-xl text-black rounded-full bg-white border border-green-500 w-full outline-[#007bff]" />
   </label>
   <label class="flex items-start flex-col justify-start lg:w-[80%]">
     <h1 class="text-2xl my-6">Foto şəkil</h1>
-    <input type='file' placeholder='Şəkilləri bura yükləyin'
+    <input id="img" type='text' placeholder='Şəkilləri bura yükləyin'
     class="pr-4 px-5 py-2.5 text-xl text-black rounded-full bg-white border border-green-500 w-full outline-[#007bff]"  />
   </label>
   <label class="flex items-start flex-col justify-start lg:w-[80%]">
+    <h1 class="text-2xl my-6">Xəbər baxış sayı </h1>
+    <input id="view"  type='number' placeholder='Xəbərin başlığı'
+          class="pr-4 px-5 py-2.5 text-xl text-black rounded-full bg-white border border-green-500 w-full outline-[#007bff]" />
+  </label>
+  <label class="flex items-start flex-col justify-start lg:w-[80%]">
+    <h1 class="text-2xl my-6">Xəbərin Katagoriyası </h1>
+    <input id="catagory"  type='text' placeholder='Xəbərin Katagoriyası'
+          class="pr-4 px-5 py-2.5 text-xl text-black rounded-full bg-white border border-green-500 w-full outline-[#007bff]" />
+  </label>
+  <label class="flex items-start flex-col justify-start lg:w-[80%]">
     <h1 class="text-2xl my-6">Xəbər haqqında </h1>
-    <textarea placeholder='Xəbər haqqında'
+    <textarea id="description" placeholder='Xəbər haqqında'
     class="p-4 bg-white w-full text-xl border rounded border-green-500 outline-[#007bff] font-[sans-serif]"
     rows="4"></textarea>
   </label>
   <div>
-    <label class="text-xl my-2 block">Xəbərin paylaşılma tarixi (ay,il,gün) </label>
-    <input type="date" class="px-4 py-3 bg-[#f0f1f2] text-black w-full text-xl outline-[#007bff] rounded" />
-  </div>
-  
-  <div>
-    <label class="text-xl my-2 block">Xəbərin paylaşılma tarixi saat</label>
-    <input type="time" class="px-4 py-3 bg-[#f0f1f2] text-black w-full text-xl outline-[#007bff] rounded" />
+    
   </div>
   <div class="butto">
-    <button type="button"
-    class="mt-8 px-6 py-2.5 w-full text-xl bg-blue-500 text-white rounded hover:bg-blue-600 transition-all">Xəbəri yerləşdir</button>
+    <button 
+    class="mt-8 px-6 py-2.5 w-[80%] text-xl bg-blue-500 text-white rounded hover:bg-blue-600 transition-all">Xəbəri yerləşdir</button>
   </div>
     </form>
     </div>
   </div>
 </section>
-  <section  style="display: none;" id="scontent2">
-  <div class="bg-gray-50 px-4 py-10 font-[sans-serif]">
-    <h2 class="text-gray-800 text-3xl font-bold mb-14 text-center">Ümumi Statsika</h2>
-    <div class="grid sm:grid-cols-2 gap-6 max-w-6xl mx-auto">
-      <div class="bg-white flex gap-6 max-lg:flex-col rounded-2xl md:p-8 p-6 shadow-[0_-4px_24px_-8px_rgba(0,0,0,0.2)]">
-        <h3 class="text-gray-800 text-5xl font-extrabold">5.4<span class="text-blue-600">M+</span></h3>
-        <div>
-          <p class="text-gray-800 text-base font-bold">Son 5 ay ərzində sayta daxil olanlar</p>
-          <p class="text-sm text-gray-500 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.</p>
-        </div>
-      </div>
-      <div class="bg-white flex gap-6 max-lg:flex-col rounded-2xl md:p-8 p-6 shadow-[0_-4px_24px_-8px_rgba(0,0,0,0.2)]">
-        <h3 class="text-gray-800 text-5xl font-extrabold">$20<span class="text-blue-600">K</span></h3>
-        <div>
-          <p class="text-gray-800 text-base font-bold">Son 4 ay ərzində reklamdan gələn dəyər</p>
-          <p class="text-sm text-gray-500 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.</p>
-        </div>
-      </div>
-      <div class="bg-white flex gap-6 max-lg:flex-col rounded-2xl md:p-8 p-6 shadow-[0_-4px_24px_-8px_rgba(0,0,0,0.2)]">
-        <h3 class="text-gray-800 text-5xl font-extrabold">100<span class="text-blue-600">K</span></h3>
-        <div>
-          <p class="text-gray-800 text-base font-bold">Sitenin aktivlik durumu</p>
-          <p class="text-sm text-gray-500 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.</p>
-        </div>
-      </div>
-      <div class="bg-white flex gap-6 max-lg:flex-col rounded-2xl md:p-8 p-6 shadow-[0_-4px_24px_-8px_rgba(0,0,0,0.2)]">
-        <h3 class="text-gray-800 text-5xl font-extrabold">99.9<span class="text-blue-600">%</span></h3>
-        <div>
-          <p class="text-gray-800 text-base font-bold">Serverin yenilənmə sürəti</p>
-          <p class="text-sm text-gray-500 mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis accumsan, nunc et tempus blandit, metus mi consectetur felis turpis vitae ligula.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  </section>
 
+<section class=" p-4">
+  <h1 class="text-2xl font-semibold my-5">Paylaşılan xəbərlər</h1>
+  <div class="font-[sans-serif] overflow-x-auto flex flex-col">
+    <table class="min-w-full bg-white lg:w-[80%] w-full table-auto">
+      <thead class="bg-gray-800">
+        <tr class="text-left text-sm font-medium text-white ">
+          <th class="p-4">Xəbər başlığı</th>
+          <th class="p-4">Baxış</th>
+          <th class="p-4">Katagoriya</th>
+          <th class="p-4">Şəkil</th>
+          <th class="p-4">Dəyişiklik</th>
+        </tr>
+      </thead>
+      <tbody id="xebercedvel" class="bg-white divide-y divide-gray-200">
+       
+      </tbody>
+    </table>
+  </div>
+  
+</section>
+
+<div id="xebercontainer" style="display: none;">
+    
+</div>
 </main>
+<script src="../js/dashbord.js"></script>
+<script src="../js/app.js"></script>
   <script src="../js/login.js"></script>
-  <script src="../js/dashbord.js"></script>
 
 </body>
 </html>
