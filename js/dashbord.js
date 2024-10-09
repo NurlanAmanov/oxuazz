@@ -8,7 +8,8 @@ const img = document.getElementById('img')
 const view = document.getElementById('view')
 const description = document.getElementById('description')
 const catagory = document.getElementById('catagory')
-const xeberinfo = document.getElementById('xeberinfo')
+
+
 function panelgo() {
   if (sectionconten1.style.display === "block") {
     sectionconten1.style.display = "none"
@@ -32,8 +33,8 @@ function handleSubmit(event) {
   const catgValue = catagory.value
 
   const descriptionValue = description.value
-  if (titleValue.trim().length < 5 || titleValue.trim().length > 250) return alert("Bu xananı tam doldur")
-  if (descValue.trim().length < 5 || descValue.trim().length > 255) return alert("Bu xananı tam doldur")
+  if (titleValue.trim().length < 5 || titleValue.trim().length > 255) return alert("Bu xananı tam doldur")
+  if (descValue.trim().length < 5)  alert("Bu xananı tam doldur")
 
     xeberinfo.innerHTML = `
   <div id="alert-box" class="flex items-start max-sm:flex-col w-[30%] bg-green-100 text-green-800 p-4 rounded-lg relative" role="alert">
@@ -98,11 +99,14 @@ function showxeber() {
   xebercontainer.innerHTML = ""
 
   XEBERIM.map(item => {
-    xebercontainer.innerHTML += `<div class="bg-[#FAFAF9] shadow-[0_4px_12px_-5px_rgba(0,0,0,0.4)] w-full max-w-sm rounded-lg overflow-hidden  h-[490px] mx-4 font-[sans-serif] mt-4">
-      <div class="min-h-[256px]">
-        <img src="${item.img}" class="w-full" />
+    xebercontainer.innerHTML += `
+    <div class="bg-[#FAFAF9] shadow-[0_4px_12px_-5px_rgba(0,0,0,0.4)] w-full max-w-sm rounded-lg overflow-hidden  h-[350px] mx-4 font-[sans-serif] mt-4">
+      <div>
+      <a href="/page/xeberler.htm?id=${item.id}"> 
+       <img src="${item.img}" class="w-full" /> 
+       </a>
       </div>
-      <div class="p-6">
+      <div class="p-4">
         <span class="flex items-center justify-start gap-4 my-3"><p class="text-md"> <i class="fa-regular fa-calendar-days mx-1"></i> 04 okt, 2024 / 20:00
         </p>  <p class="text-md gap-3"><i class="fa-solid fa-eye mx-2"></i>${item.view}</p></span>
         <a href="#" class="text-gray-800 text-xl font-bold">${item.title}</a>
