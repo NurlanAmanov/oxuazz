@@ -10,19 +10,33 @@ const description = document.getElementById('description')
 const catagory = document.getElementById('catagory')
 const xeberlist = document.getElementById('xeberlist')
 const xeberyerslesdir = document.getElementById('xeberyerslesdir')
+const profil = document.getElementById('profil')
+const ayarlar = document.getElementById('ayarlar')
 
 
-function anasehgo() {
-  if (xeberlist.style.display === "none") {
-    xeberyerslesdir.style.display = "none"
-    xeberlist.style.display = "block"
-  }
+function anasehgo() {   
+  xeberyerslesdir.style.display = "none";    
+  xeberlist.style.display = "block";   
+  profil.style.display = "none"; 
 }
-function xeberyergo() {
-  if (xeberyerslesdir.style.display === "none") {
-    xeberyerslesdir.style.display = "block"
-    xeberlist.style.display = "none"
-  }
+
+function xeberyergo() {   
+  xeberyerslesdir.style.display = "block";   
+  xeberlist.style.display = "none";   
+  profil.style.display = "none"; 
+}
+
+function hesabgo() {   
+  profil.style.display = "block";    
+  xeberlist.style.display = "none";   
+  xeberyerslesdir.style.display = "none"; 
+}
+
+function ayargo() {   
+  ayarlar.style.display = "block";   
+  profil.style.display = "none";   
+  xeberlist.style.display = "none";   
+  xeberyerslesdir.style.display = "none"; 
 }
 
 

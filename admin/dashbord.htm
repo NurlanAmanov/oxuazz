@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <header class='flex bg-[#121533] py-3 px-6 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide relative z-50'>
+  <header class='flex bg-[#121533] py-3 px-6 xl:px-10 font-[sans-serif] min-h-[50px] tracking-wide relative z-50'>
     <div class='flex flex-wrap items-center justify-between gap-4 w-full'>
 <h1 class="text-white text-2xl">Nurlan Softs</h1>
       </a>
@@ -49,14 +49,14 @@
             </a>
           </li>
           <li class='max-lg:border-b max-lg:py-3 px-3'>
-            <a href='javascript:void(0)'
+            <a onclick="hesabgo()" href='javascript:void(0)'
               class='text-gray-300 hover:text-white text-xl flex flex-col items-center gap-1'>
              <img src="../img/user.png" class="w-[35px]" alt="">
               Hesab
             </a>
           </li>
           <li class='max-lg:border-b max-lg:py-3 px-3'>
-            <a href='javascript:void(0)'
+            <a onclick="ayargo()" href='javascript:void(0)'
               class='text-gray-300 hover:text-white text-2xl flex flex-col items-center gap-1'>
              <img src="../img/settings.png" class="w-[35px]" alt="">
               Ayarlar
@@ -85,11 +85,11 @@
     <div class="max-w-2xl">
       <h1 class="text-4xl font-extrabold text-blue-600">Xoş gəldin Admin</h1>
       <div class="mt-4">
-        <p class="text-sm text-gray-800 leading-relaxed">Burada həm Paylaşılan xəbərləri görə bilərsən həmdə xəbər əlavə edə bilərsən istəsən site ayarlarında dəyişə bilərsən</p>
+        <p class="text-xl text-gray-800 leading-relaxed">Burada həm Paylaşılan xəbərləri görə bilərsən həmdə xəbər əlavə edə bilərsən istəsən site ayarlarında dəyişə bilərsən</p>
       </div>
       
       <a href="https://www.instagram.com/nurlan.7o/"
-        class="mt-8 px-6 py-3 block text-white text-sm tracking-wider font-semibold rounded-md border-none outline-none bg-blue-600 hover:bg-blue-700">Daha çoxu üçün tıkla</a>
+        class="mt-8 px-6 py-3 block text-white text-xl tracking-wider font-semibold rounded-md border-none outline-none bg-blue-600 hover:bg-blue-700">Daha çoxu üçün tıkla</a>
     </div>
   </div>
 
@@ -97,7 +97,7 @@
   <div id="xeber-cedvel" class="font-[sans-serif] overflow-x-auto flex flex-col">
     <table class="min-w-full bg-white lg:w-[80%] w-full table-auto">
       <thead class="bg-gray-800">
-        <tr class="text-left text-sm font-medium text-white ">
+        <tr class="text-left text-xl font-medium text-white ">
           <th class="p-4">Xəbər başlığı</th>
           <th class="p-4">Baxış</th>
           <th class="p-4">Katagoriya</th>
@@ -161,7 +161,80 @@
    </form>
    </div>
 </section>
+<section style="display: none;" id="profil">
+  <div class="max-w-4xl mx-auto font-[sans-serif] p-6">
+    <div class="text-center mb-16">
+     
+      <h4 class="text-gray-800 text-2xl font-semibold mt-6">İstifadəçi məlumatların yenilə</h4>
+    </div>
 
+    <form>
+      <div class="grid xl:grid-cols-2 gap-8">
+        <div>
+          <label class="text-gray-800 text-xl mb-2 block">Ad</label>
+          <input name="name" type="text" class="bg-gray-100 w-full text-gray-800 text-xl px-4 py-3.5 rounded-md focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter name" />
+        </div>
+        <div>
+          <label class="text-gray-800 text-xl mb-2 block">Soyad</label>
+          <input name="lname" type="text" class="bg-gray-100 w-full text-gray-800 text-xl px-4 py-3.5 rounded-md focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter last name" />
+        </div>
+        <div>
+          <label class="text-gray-800 text-xl mb-2 block">E-mail</label>
+          <input name="email" type="text" class="bg-gray-100 w-full text-gray-800 text-xl px-4 py-3.5 rounded-md focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter email" />
+        </div>
+        <div>
+          <label class="text-gray-800 text-xl mb-2 block">İstifadəçi adı.</label>
+          <input name="number" type="text" class="bg-gray-100 w-full text-gray-800 text-xl px-4 py-3.5 rounded-md focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter mobile number" />
+        </div>
+        <div>
+          <label class="text-gray-800 text-xl mb-2 block">Şifrə</label>
+          <input name="password" type="password" class="bg-gray-100 w-full text-gray-800 text-xl px-4 py-3.5 rounded-md focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter password" />
+        </div>
+        <div>
+          <label class="text-gray-800 text-xl mb-2 block">Şifrəni təkrarla</label>
+          <input name="cpassword" type="password" class="bg-gray-100 w-full text-gray-800 text-xl px-4 py-3.5 rounded-md focus:bg-transparent outline-blue-500 transition-all" placeholder="Enter confirm password" />
+        </div>
+      </div>
+
+      <div class="!mt-12">
+        <button type="button" class="py-3.5 px-7 text-xl font-semibold tracking-wider rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none">
+          Məlumatları yenilə
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
+<section id="ayarlar" style="display: none;">
+  <form class="space-y-6 lg:w-[80%] px-4  mx-auto font-[sans-serif] mt-6 px-3">
+    <h1 class="text-2xl">Ayarlar </h1>
+    <div class="flex items-center">
+      <label class="text-gray-400 w-36 text-xl">Site Name</label>
+      <input type="text" placeholder="Enter  name"
+        class="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-xl bg-white" />
+    </div>
+
+    <div class="flex items-center">
+      <label class="text-gray-400 w-36 text-xl">Site logo</label>
+      <input type="file" placeholder="Enter your email"
+        class="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-xl bg-white" />
+    </div>
+
+    <div class="flex items-center">
+      <label class="text-gray-400 w-36 text-xl">Seo title</label>
+      <input type="number" placeholder="Enter Seo title"
+        class="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-xl bg-white" />
+    </div>
+
+    <div class="flex items-center">
+      <label class="text-gray-400 w-36 text-xl">Seo keywords</label>
+      <input type="text" placeholder="Enter Seo keywords"
+        class="px-2 py-2 w-full border-b-2 focus:border-[#333] outline-none text-xl bg-white" />
+    </div>
+
+    <button type="button"
+      class="!mt-8 px-6 py-2 w-full bg-[#333] hover:bg-[#444] text-xl text-white mx-auto block">Saytı yenilə</button>
+  </form>
+</section>
 </main>
 <script src="../js/dashbord.js"></script>
 <script src="../js/app.js"></script>
