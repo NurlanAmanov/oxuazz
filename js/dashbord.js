@@ -8,18 +8,20 @@ const img = document.getElementById('img')
 const view = document.getElementById('view')
 const description = document.getElementById('description')
 const catagory = document.getElementById('catagory')
+const xeberlist = document.getElementById('xeberlist')
+const xeberyerslesdir = document.getElementById('xeberyerslesdir')
 
 
-function panelgo() {
-  if (sectionconten1.style.display === "block") {
-    sectionconten1.style.display = "none"
-    scontent2.style.display = "block"
+function anasehgo() {
+  if (xeberlist.style.display === "none") {
+    xeberyerslesdir.style.display = "none"
+    xeberlist.style.display = "block"
   }
 }
-function sehifego() {
-  if (scontent2.style.display === "block") {
-    sectionconten1.style.display = "block"
-    scontent2.style.display = "none"
+function xeberyergo() {
+  if (xeberyerslesdir.style.display === "none") {
+    xeberyerslesdir.style.display = "block"
+    xeberlist.style.display = "none"
   }
 }
 
@@ -161,3 +163,16 @@ XEBERIM=XEBERIM.filter(item=item.id !=id)
 showxeber()
 cedvelyaz()
   }
+
+
+
+function handleClick() {
+  if (collapseMenu.style.display === 'block') {
+    collapseMenu.style.display = 'none';
+  } else {
+    collapseMenu.style.display = 'block';
+  }
+}
+
+toggleOpen.addEventListener('click', handleClick);
+toggleClose.addEventListener('click', handleClick);
