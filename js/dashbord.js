@@ -18,18 +18,21 @@ function anasehgo() {
   xeberyerslesdir.style.display = "none";    
   xeberlist.style.display = "block";   
   profil.style.display = "none"; 
+  ayarlar.style.display = "none";  
 }
 
 function xeberyergo() {   
   xeberyerslesdir.style.display = "block";   
   xeberlist.style.display = "none";   
   profil.style.display = "none"; 
+  ayarlar.style.display = "none";  
 }
 
 function hesabgo() {   
   profil.style.display = "block";    
   xeberlist.style.display = "none";   
   xeberyerslesdir.style.display = "none"; 
+  ayarlar.style.display = "none";  
 }
 
 function ayargo() {   
