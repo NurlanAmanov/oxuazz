@@ -164,7 +164,7 @@ function cedvelyaz(){
           <img src="${item.img}" class="w-16 h-16 object-cover" alt="${item.title}">
         </td>
         <td class="p-4 text-xl text-gray-900 whitespace-nowrap">
-          <button onclick="deleteXeber(${item.id})" class="text-blue-600 hover:text-blue-800">Sil</button>
+          <button onclick="deleteXeber(${item.id})" class="text-blue-600 hover:text-blue-800">  <img src="../img/delete.png" class="w-[35px]" alt=""></button>
         </td>
       </tr>
     `;
