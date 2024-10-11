@@ -41,13 +41,7 @@
               Əsas səhifə
             </a>
           </li>
-          <li class='max-lg:border-b max-lg:py-3 px-3'>
-            <a onclick="xeberyergo()" href='javascript:void(0)' 
-              class='text-gray-300 hover:text-white text-xl flex flex-col items-center gap-1'>
-              <img src="../img/new-post.png" class="w-[35px] object-cover"  alt="">
-              Xəbər yerləşdir
-            </a>
-          </li>
+          
           <li class='max-lg:border-b max-lg:py-3 px-3'>
             <a onclick="hesabgo()" href='javascript:void(0)'
               class='text-gray-300 hover:text-white text-xl flex flex-col items-center gap-1'>
@@ -79,20 +73,76 @@
     </div>
   </header>
 <main>
-
-
-<section id="xeberlist" class=" p-4">
-  <div class="bg-white p-10 w-full font-[sans-serif] relative before:absolute before:left-0 before:top-0 before:w-2 before:h-full before:bg-blue-500">
-    <div class="max-w-2xl">
-      <h1 class="text-4xl font-extrabold text-blue-600">Xoş gəldin Admin</h1>
-      <div class="mt-4">
-        <p class="text-xl text-gray-800 leading-relaxed">Burada həm Paylaşılan xəbərləri görə bilərsən həmdə xəbər əlavə edə bilərsən istəsən site ayarlarında dəyişə bilərsən</p>
+  <!-- <section style="display: none;" id="xeberyerslesdir" class="px-4">
+    <div class="xeber-yerlesdir lg:m-12 mx-auto">
+      <div class="div-title flex items-center justify-center">
+       <h1 class="text-3xl my-5 font-bold">Xəbər yerləşdir</h1>
       </div>
+  
+      <div id="xeberinfo" class="bildirim flex items-center justify-center p-4">
+    
+      </div>
+  
       
-      <a href="https://www.instagram.com/nurlan.7o/"
-        class="mt-8 px-6 py-3 block text-white text-xl tracking-wider font-semibold rounded-md border-none outline-none bg-blue-600 hover:bg-blue-700">Daha çoxu üçün tıkla</a>
-    </div>
-  </div>
+      
+     </div>
+  </section> -->
+  <div id="xeberyerslesdir" style="display: none;" onclick="formbaqla()" class="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[999] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)] overflow-auto font-[sans-serif]">
+    <div class="xeber-yerlesdir lg:m-12 mx-auto">
+      
+  
+      <div id="xeberinfo" class="bildirim flex items-center justify-center p-4">
+       
+      </div>
+  
+      
+      
+     </div>
+    <form onsubmit="handleSubmit(event)" onclick="preventClick(event)" class="border lg:w-[30%] p-3 space-y-4 bg-white shadow-xl mx-auto z-[10005] rounded-md flex-wrap flex items-center justify-between">
+      <label class="flex items-start flex-col justify-start w-full lg:w-[90%] space-y-1">
+        <h1 class="text-2xl font-semibold text-gray-700">Xəbərin başlığı</h1>
+        <input id="title" type='text' placeholder='Xəbərin başlığı'
+               class="px-4 py-2 text-base text-gray-900 rounded-full bg-gray-100 border border-blue-500 w-full focus:ring-4 focus:ring-blue-300 transition-all outline-none" />
+      </label>
+    
+      <label class="flex items-start flex-col justify-start w-full lg:w-[90%] space-y-1">
+        <h1 class="text-2xl font-semibold text-gray-700">Foto şəkil</h1>
+        <input id="img" type='text' placeholder='Şəkilləri bura yükləyin'
+               class="px-4 py-2 text-base text-gray-900 rounded-full bg-gray-100 border border-blue-500 w-full focus:ring-4 focus:ring-blue-300 transition-all outline-none" />
+      </label>
+    
+      <label class="flex items-start flex-col justify-start w-full lg:w-[90%] space-y-1">
+        <h1 class="text-2xl font-semibold text-gray-700">Xəbər baxış sayı</h1>
+        <input id="view" type='number' placeholder='Xəbərin baxış sayı'
+               class="px-4 py-2 text-base text-gray-900 rounded-full bg-gray-100 border border-blue-500 w-full focus:ring-4 focus:ring-blue-300 transition-all outline-none" />
+      </label>
+    
+      <label class="flex items-start flex-col justify-start w-full lg:w-[90%] space-y-1">
+        <h1 class="text-2xl font-semibold text-gray-700">Xəbərin Katagoriyası</h1>
+        <input id="catagory" type='text' placeholder='Xəbərin Katagoriyası'
+               class="px-4 py-2 text-base text-gray-900 rounded-full bg-gray-100 border border-blue-500 w-full focus:ring-4 focus:ring-blue-300 transition-all outline-none" />
+      </label>
+    
+      <label class="flex items-start flex-col justify-start w-full lg:w-[90%] space-y-1">
+        <h1 class="text-2xl font-semibold text-gray-700">Xəbər haqqında</h1>
+        <textarea id="description" placeholder='Xəbər haqqında'
+                  class="px-4 py-2 bg-gray-100 text-base text-gray-900 border border-blue-500 rounded-xl w-full focus:ring-4 focus:ring-blue-300 transition-all outline-none"
+                  rows="3"></textarea>
+      </label>
+    
+      <div class="w-full flex justify-center">
+        <button class="mt-4 px-4 py-2 text-base bg-blue-600 text-white rounded-full hover:bg-blue-700 shadow-lg transition-all w-full lg:w-[60%]">Xəbəri yerləşdir</button>
+      </div>
+    </form>
+</div>
+
+</div>
+<section id="xeberlist" class=" p-4">
+  <div class="div-title flex items-center justify-center flex-col">
+    <h1 class="text-3xl my-5 font-bold">Xəbər yerləşdir</h1>
+    <button   onclick="xeberyergo()"
+        class="px-5 py-2.5 rounded-lg text-sm tracking-wider font-medium border border-green-700 outline-none bg-transparent hover:bg-green-700 text-green-700 hover:text-white transition-all duration-300">Xəbər əlavə et</button>
+   </div>
 
   <h1 class="text-2xl font-semibold my-5 ">Paylaşılan xəbərlər</h1>
   <div id="xeber-cedvel" class="font-[sans-serif] overflow-x-auto flex flex-col">
@@ -115,53 +165,7 @@
     
   </div>
 </section>
-<section style="display: none;" id="xeberyerslesdir" class="px-4">
-  <div class="xeber-yerlesdir lg:m-12 mx-auto">
-    <div class="div-title flex items-center justify-center">
-     <h1 class="text-3xl my-5 font-bold">Xəbər yerləşdir</h1>
-    </div>
 
-    <div id="xeberinfo" class="bildirim flex items-center justify-center p-4">
-  
-    </div>
-
-   <form onsubmit="handleSubmit(event)" class="border lg:w-[100%] p-4 flex-wrap mx-auto rounded-md flex items-center justify-between">
- <label class="flex items-start flex-col justify-start lg:w-[80%]">
-   <h1 class="text-2xl my-6">Xəbərin başlığı </h1>
-   <input id="title"  type='text' placeholder='Xəbərin başlığı'
-         class="pr-4 px-5 py-2.5 text-xl text-black rounded-full bg-white border border-green-500 w-full outline-[#007bff]" />
- </label>
- <label class="flex items-start flex-col justify-start lg:w-[80%]">
-   <h1 class="text-2xl my-6">Foto şəkil</h1>
-   <input id="img" type='text' placeholder='Şəkilləri bura yükləyin'
-   class="pr-4 px-5 py-2.5 text-xl text-black rounded-full bg-white border border-green-500 w-full outline-[#007bff]"  />
- </label>
- <label class="flex items-start flex-col justify-start lg:w-[80%]">
-   <h1 class="text-2xl my-6">Xəbər baxış sayı </h1>
-   <input id="view"  type='number' placeholder='Xəbərin baxış sayı'
-         class="pr-4 px-5 py-2.5 text-xl text-black rounded-full bg-white border border-green-500 w-full outline-[#007bff]" />
- </label>
- <label class="flex items-start flex-col justify-start lg:w-[80%]">
-   <h1 class="text-2xl my-6">Xəbərin Katagoriyası </h1>
-   <input id="catagory"  type='text' placeholder='Xəbərin Katagoriyası'
-         class="pr-4 px-5 py-2.5 text-xl text-black rounded-full bg-white border border-green-500 w-full outline-[#007bff]" />
- </label>
- <label class="flex items-start flex-col justify-start lg:w-[80%]">
-   <h1 class="text-2xl my-6">Xəbər haqqında </h1>
-   <textarea id="description" placeholder='Xəbər haqqında'
-   class="p-4 bg-white w-full text-xl border rounded border-green-500 outline-[#007bff] font-[sans-serif]"
-   rows="4"></textarea>
- </label>
- <div>
-   
- </div>
- <div class="butto w-full">
-   <button 
-   class="mt-8 px-4 py-2.5 w-[90%] lg:w-[40%] text-xl bg-blue-500 text-white rounded hover:bg-blue-600 transition-all">Xəbəri yerləşdir</button>
- </div>
-   </form>
-   </div>
-</section>
 <section style="display: none;" id="profil">
   <div class="max-w-4xl mx-auto font-[sans-serif] p-6">
     <div class="text-center mb-16">

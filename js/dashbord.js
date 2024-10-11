@@ -14,16 +14,17 @@ const profil = document.getElementById('profil')
 const ayarlar = document.getElementById('ayarlar')
 
 
+
 function anasehgo() {   
-  xeberyerslesdir.style.display = "none";    
+
   xeberlist.style.display = "block";   
   profil.style.display = "none"; 
   ayarlar.style.display = "none";  
 }
 
 function xeberyergo() {   
-  xeberyerslesdir.style.display = "block";   
-  xeberlist.style.display = "none";   
+  xeberyerslesdir.style.display = "flex";   
+
   profil.style.display = "none"; 
   ayarlar.style.display = "none";  
 }
@@ -42,6 +43,7 @@ function ayargo() {
   xeberyerslesdir.style.display = "none"; 
 }
 
+let XEBERIM = []
 
 function handleSubmit(event) {
   event.preventDefault()
@@ -56,17 +58,17 @@ function handleSubmit(event) {
   if (descValue.trim().length < 5)  alert("Bu xananı tam doldur")
 
     xeberinfo.innerHTML = `
-  <div id="alert-box" class="flex items-start max-sm:flex-col w-[30%] bg-green-100 text-green-800 p-4 rounded-lg relative" role="alert">
-    <div class="flex items-center max-sm:mb-2">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] fill-green-500 inline mr-3" viewBox="0 0 512 512">
-        <ellipse cx="256" cy="256" fill="#32bea6" rx="256" ry="255.832" />
-        <path fill="#fff" d="m235.472 392.08-121.04-94.296 34.416-44.168 74.328 57.904 122.672-177.016 46.032 31.888z" />
-      </svg>
-      <strong class="font-bold text-lg">Uğurlu oldu!</strong>
-    </div>
-  
-    <span class="block sm:inline text-lg ml-4 mr-8 max-sm:ml-0 max-sm:mt-2">Xəbər uğurla yerləşdirildi.</span>
-  </div>
+  <div id="alert-box" class="flex items-start max-sm:flex-col lg:flex-col w-[80%] bg-green-100 text-green-800 p-4 rounded-lg relative" role="alert">
+          <div class="flex items-center max-sm:mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] fill-green-500 inline mr-3" viewBox="0 0 512 512">
+              <ellipse cx="256" cy="256" fill="#32bea6" rx="256" ry="255.832" />
+              <path fill="#fff" d="m235.472 392.08-121.04-94.296 34.416-44.168 74.328 57.904 122.672-177.016 46.032 31.888z" />
+            </svg>
+            <strong class="font-bold text-lg">Uğurlu oldu!</strong>
+          </div>
+        
+          <span class="block sm:inline text-lg ml-4 mr-8 max-sm:ml-0 max-sm:mt-2">Xəbər uğurla yerləşdirildi.</span>
+        </div>
 `;
 
 setTimeout(function() {
@@ -95,18 +97,21 @@ setTimeout(function() {
   })
     .then((response) => response.json())
     .then((json) => console.log(json));
-
+XEBERIM.length = 0
+formbaqla()
+  cedvelyaz()
+  editxeber()
   getxeber()
 }
 
-let XEBERIM = []
+
 function getxeber() {
   fetch("https://67057e08031fd46a83102e03.mockapi.io/api/v1/nurdata")
     .then(res => res.json())
     .then(datam => {
       XEBERIM.push(...datam)
-      showxeber()
       cedvelyaz()
+      showxeber()
     })
 }
 getxeber()
@@ -165,23 +170,80 @@ function cedvelyaz(){
         </td>
         <td class="p-4 text-xl text-gray-900 whitespace-nowrap">
           <button onclick="deleteXeber(${item.id})" class="text-blue-600 hover:text-blue-800">  <img src="../img/delete.png" class="w-[35px]" alt=""></button>
+          <button onclick="editxeber(${item.id})" class="text-blue-600 hover:text-blue-800">  <img src="../img/edit.png" class="w-[35px]" alt=""></button>
         </td>
       </tr>
     `;
   })}
 
-  function deleteXeber(id){
+function deleteXeber(id){
 fetch(`https://67057e08031fd46a83102e03.mockapi.io/api/v1/nurdata/${id}`,{
-   method: "DELETE"
+   method: "DELETE",
 } )
 .then(res=>res.json())
-XEBERIM=XEBERIM.filter(item=item.id !=id)
+.then(datam=>{
+  console.log(datam)
+  XEBERIM=XEBERIM.filter(item=item.id !=id)
+ 
+})
+}
 
-showxeber()
-cedvelyaz()
-  }
+function editxeber(id) {
+  document.getElementById('xeberyerslesdir').style.display = 'flex';
+  
+  const { title: ad, description, img, view, catagory } = XEBERIM.find(item => item.id == id);
+
+  document.getElementById('title').value = ad;
+  document.getElementById('description').value = description;
+  document.getElementById('catagory').value = catagory;
+  document.getElementById('img').value = img;
+  document.getElementById('view').value = view;
+
+  const form = document.querySelector('form');
+  form.onsubmit = (event) => {
+    event.preventDefault(); 
+    editet(id); 
+  };
+}
+
+function editet(id) {
+  
+  const viewValue = document.getElementById('view').value;
+  const imgValue = document.getElementById('img').value;
+  const titleValue = document.getElementById('title').value;
+  const descValue = document.getElementById('description').value;
+  const catgValue = document.getElementById('catagory').value;
 
 
+  const obj = {
+    "title": titleValue,
+    "img": imgValue,
+    "view": viewValue,
+    "description": descValue,
+    "catagory": catgValue,
+  };
+
+  
+  fetch(`https://67057e08031fd46a83102e03.mockapi.io/api/v1/nurdata/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(obj), 
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json))
+  
+}
+
+
+function formbaqla() {
+  xeberyerslesdir.style.display = 'none';
+}
+
+function preventClick(event) {
+  event.stopPropagation();
+}
 
 function handleClick() {
   if (collapseMenu.style.display === 'block') {
